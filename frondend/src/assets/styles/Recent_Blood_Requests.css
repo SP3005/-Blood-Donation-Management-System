@@ -1,0 +1,171 @@
+/* Overall Page Styling */
+.home-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Recent Blood Requests Section */
+  .requests-home-container {
+    padding: 80px 10%;
+    background: #f5f5f5;
+    text-align: center;
+    position: relative;
+  }
+  
+  .requests-home-container h2 {
+    width: 100%;
+    font-size: 2.5rem;
+    color: #d9534f;  /* Blood red color */
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #ede8e8;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.308);
+  }
+  
+  /* Scrollable Container */
+  .requests-scroll-container {
+    display: flex;
+    overflow-x: auto;           /* Enable horizontal scroll */
+    scroll-behavior: smooth;    /* Smooth scroll effect */
+    white-space: nowrap;        /* Prevent wrapping */
+    margin: 0 50px;             /* Space for buttons */
+  }
+  
+  .requests-grid {
+    display: inline-flex;        /* Horizontal layout */
+    gap: 20px;                   /* Space between cards */
+    padding: 20px 0;
+  }
+  
+  /* Individual request card */
+  .request-card {
+    background: #fff;
+    min-width: 260px;           /* Set consistent card width */
+    max-width: 320px;           
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: left;
+    white-space: normal;        /* Allow wrapping inside the card */
+  }
+  
+  .request-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .card-header h3 {
+    font-size: 2rem;
+    color: #d9534f;
+  }
+  
+  .urgency-tag {
+    font-size: 1rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  /* Urgency Color Coding */
+  .Critical { background: #ff0000; }   /* Red for Critical */
+  .High { background: #f0ad4e; }       /* Orange for High */
+  .Medium { background: #5bc0de; }     /* Blue for Medium */
+  .Low { background: #5cb85c; }        /* Green for Low */
+  
+  .request-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Icons */
+  .request-card p svg {
+    color: #d9534f;  /* Icon color */
+  }
+  
+  /* Scroll Buttons */
+  .scroll-buttons {
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .scroll-btn {
+    background: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .scroll-btn:hover {
+    background: #5cb85c;
+    transform: scale(1.05);
+  }
+  
+  .left-btn-1 {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .right-btn-1 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Custom Scrollbar Styling */
+  .requests-scroll-container::-webkit-scrollbar {
+    height: 12px;            
+  }
+  
+  .requests-scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;      
+    border-radius: 10px;
+  }
+  
+  .requests-scroll-container::-webkit-scrollbar-thumb {
+    background: #d9534f;      
+    border-radius: 10px;
+  }
+  
+  .requests-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #5cb85c;      
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .scroll-btn {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+    }
+    .requests-home-container{
+        padding: 0px;
+    }
+    .request-card{
+        width: 280px;
+    }
+  }
+  

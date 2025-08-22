@@ -1,0 +1,91 @@
+/* Overall Page Styling */
+.home-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* How It Works Section */
+  .steps-container {
+    padding: 80px 10%;
+    background: #f5f5f5;
+    text-align: center;
+  }
+  
+  .steps-container h2 {
+    font-size: 2.5rem;
+    color: #d9534f; /* Blood red color */
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #ede8e8;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.308);
+  }
+  
+  /* Grid layout for step cards */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  /* Individual step card */
+  .step-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .step-icon {
+    font-size: 3rem;
+    color: #5cb85c;  /* Green color for icons */
+    margin-bottom: 20px;
+  }
+  
+  .step-card h3 {
+    font-size: 1.8rem;
+    color: #d9534f; /* Blood red color */
+    margin-bottom: 15px;
+  }
+  
+  .step-card p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 992px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .steps-container h2 {
+      font-size: 2rem;
+    }
+  
+    .step-card h3 {
+      font-size: 1.5rem;
+    }
+  
+    .step-card p {
+      font-size: 1rem;
+    }
+  
+    .step-icon {
+      font-size: 2.5rem;
+    }
+  }
+  

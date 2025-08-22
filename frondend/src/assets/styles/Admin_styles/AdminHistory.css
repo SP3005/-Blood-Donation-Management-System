@@ -1,0 +1,127 @@
+/* ===========================
+   History Page Styling
+=========================== */
+.history-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding: 60px 8%;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Header */
+.history-page h1 {
+    font-size: 3rem;
+    color: #d9534f;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* ===========================
+   Tabs Navigation
+=========================== */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.tabs button {
+    background: #ccc;
+    color: #333;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.tabs button:hover {
+    background: #5cb85c;
+    color: #fff;
+}
+
+.tabs button.active {
+    background: #d9534f;
+    color: #fff;
+}
+
+/* ===========================
+   Chart Container
+=========================== */
+.chart-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Line Chart Container */
+.line-chart-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Line Chart Heading */
+.line-chart-container h2 {
+    font-size: 2rem;
+    color: #5cb85c;
+    margin-bottom: 30px;
+}
+
+/* ===========================
+   Responsive Design
+=========================== */
+@media screen and (max-width: 992px) {
+    .history-page {
+        padding: 40px 5%;
+    }
+
+    .tabs {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tabs button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .chart-container, .line-chart-container {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tabs {
+        gap: 10px;
+    }
+
+    .tabs button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .chart-container, .line-chart-container {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .tabs button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .chart-container, .line-chart-container {
+        padding: 15px;
+    }
+}

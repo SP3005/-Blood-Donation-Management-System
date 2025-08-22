@@ -1,0 +1,159 @@
+/* Main Container */
+.login-container {
+    display: flex;
+    width: 80%;
+    max-width: 1100px;
+    /* height: 450px; */
+    margin: 50px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .error {
+    color: #c91c1c; /* Your bright red theme */
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: block;
+  }
+  
+  .login-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Left Side - Image */ 
+  .login-image {
+    flex: 1.2;
+    background: url("../../images/login.jpg") no-repeat center/cover;
+    position: relative;
+  }
+  
+  .login-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Right Side - Form */
+  .login-form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Elements */
+  .login-form .Login-titel {
+    text-align: center;
+    color: #b30000;
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group .Input-Name {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus {
+    border-color: #b30000;
+    box-shadow: 0px 0px 10px rgba(179, 0, 0, 0.5);
+  }
+  
+  /* Login Button */
+  .login-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #b30000, #800000);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .login-btn:hover {
+    background: linear-gradient(135deg, #800000, #4d0000);
+    transform: translateY(-2px);
+    box-shadow: 0px 5px 15px rgba(128, 0, 0, 0.4);
+  }
+
+  .left-group{
+    display: block;
+  }
+  .right-group{
+    display: block;
+  }
+
+  .register-titel , .login-titel{
+    color: rgb(28, 45, 56);
+    font-size: 20px;
+    display: block;
+    text-align: start;
+  }
+  .register-titel .register-link , .login-titel .login-link{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(1, 107, 248);
+  }
+
+  
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .login-container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .login-image {
+      height: 200px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

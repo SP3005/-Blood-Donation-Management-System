@@ -1,0 +1,279 @@
+/* Navbar Styles */
+.navbar {
+    background: #f5f5f5;
+    padding: 0.7rem 0;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .container {
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .logo-img {
+    width: 100px;
+    margin-right: 10px;
+    margin-left: 50px;
+  }
+  
+  /* Menu Styling */
+  .menu {
+    display: flex;
+  }
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-left: 400px;
+  }
+  
+  .menu li {
+    margin: 0 0px;
+  }
+  
+  .menu .nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .menu .nav-link:hover {
+    color: #e02626;
+  }
+  
+  /* User Menu */
+  .user-menu {
+    position: relative;
+  }
+  
+  .user-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  
+  .user-btn:hover .user-img {
+    transform: scale(1.1);
+  }
+  
+  /* Dropdown */
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 80px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 200px;
+    z-index: 10;
+  }
+  
+  .dropdown-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .dropdown-header span {
+    display: block;
+    color: #333;
+  }
+  
+  .email {
+    color: #777;
+    font-size: 0.85rem;
+  }
+  
+  .dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown li {
+    padding: 10px 15px;
+    transition: background 0.3s;
+  }
+  
+  .dropdown li:hover {
+    background: #f0f0f0;
+  }
+  
+  .dropdown a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Mobile Menu */
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* sign up  */
+  .login-navbar-btn {
+      background-color: #c91c1c; /* Bright Red */
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-navbar-btn::before {
+      content: "";
+      position: absolute;
+      background: rgba(255, 255, 255, 0.2);
+      height: 100%;
+      width: 0;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      transition: width 0.4s ease-in-out;
+    }
+
+    .login-navbar-btn::before {
+      width: 100%;
+    }
+
+    .login-navbar-btn:hover {
+      background-color: #a30000; /* Bold Blood Red */
+      transform: scale(1.05);
+    }
+
+    .login-navbar-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 992px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+    .user-btn{
+      padding-left: 160px;
+    }
+    .menu.open {
+      display: flex;
+    }
+  
+    .menu ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+    }
+  
+    .menu li {
+      margin: 0;
+      padding: 15px 20px;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
+  /* Underline Expand Effect */
+.nav-link {
+    position: relative;
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: crimson;
+    transition: width 0.4s ease-in-out;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+/* Ensure active link styling applies properly */
+.nav-link.active, .nav-link.active:focus, .nav-link.active:hover {
+    color: crimson !important;         /* Active link color */
+    font-weight: bold;                 /* Bold font for active link */
+    position: relative;
+    text-decoration: none;
+}
+
+/* Underline Effect */
+.nav-link.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: crimson;                /* Underline color */
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Background effect for active link */
+.nav-link.active {
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Remove the default link decoration */
+.nav-link {
+    text-decoration: none;
+    color: #444;
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    color: crimson;
+}
+
+/* Dropdown Links Active Styling */
+.profile-link.active {
+    color: crimson !important;
+    font-weight: bold;
+    text-decoration: underline;
+}

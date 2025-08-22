@@ -1,0 +1,76 @@
+/* Request Blood Page Container */
+.request-blood-page {
+    font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.request-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+    background: #f5f5f5;
+    color: #333;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: #d9534f;
+}
+
+.highlight {
+    color: #5cb85c; /* Green color */
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+/* Image Section */
+.hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Section */
+.request-form-container {
+    padding: 80px 10%;
+    background: #fff;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #d9534f;
+    text-align: center;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.submit-btn {
+    background: #5cb85c;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #d9534f;
+}

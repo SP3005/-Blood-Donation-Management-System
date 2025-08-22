@@ -1,0 +1,269 @@
+/* ==============================
+   Blood Stock Management Page
+================================= */
+.blood-stock-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f5f5, #e9ecef);
+    min-height: 100vh;
+    padding: 60px 8%;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* ==============================
+   Page Header
+================================= */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.header h1 {
+    font-size: 3.5rem;
+    color: #d9534f;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.header p {
+    font-size: 1.3rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ==============================
+   Controls Section
+================================= */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+/* Filter Input */
+.controls input {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    transition: box-shadow 0.3s;
+}
+
+.controls input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #5cb85c;
+}
+
+/* Add Stock Section */
+.add-stock {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.add-stock input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.add-stock input:focus {
+    outline: none;
+    box-shadow: 0 0 8px #d9534f;
+}
+
+/* Buttons */
+.add-stock button {
+    background: #5cb85c;
+    color: #fff;
+    border: none;
+    padding: 12px 35px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.add-stock button:hover {
+    background: #d9534f;
+    transform: translateY(-3px);
+}
+
+/* ==============================
+   Blood Stock List (Grid Layout)
+================================= */
+.stock-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    animation: slideUp 0.8s ease-in-out;
+}
+
+/* Blood Stock Card */
+.stock-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+    border-left: 10px solid transparent;
+    transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.stock-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Blood Group and Quantity */
+.stock-card h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.stock-card p {
+    font-size: 1.3rem;
+    color: #555;
+}
+
+/* Action Button */
+.stock-card button {
+    background: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s, transform 0.3s;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Hover Effect */
+.stock-card button:hover {
+    background: #5cb85c;
+    transform: scale(1.05);
+}
+
+/* Blood Stock Status Colors */
+.high {
+    border-left: 10px solid #5cb85c;  /* Green for high stock */
+    transition: 0.3s;
+}
+
+.medium {
+    border-left: 10px solid #f0ad4e; /* Yellow for medium stock */
+    transition: 0.3s;
+}
+
+.low {
+    border-left: 10px solid #d9534f; /* Red for low stock */
+    transition: 0.3s;
+}
+
+/* ==============================
+   Chart Section
+================================= */
+.chart-container {
+    margin-top: 60px;
+    background: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+    transition: 0.3s;
+}
+
+.chart-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+.chart-container h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* ==============================
+   Animations
+================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   Responsive Design
+================================= */
+@media screen and (max-width: 1200px) {
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls input, .add-stock input, .add-stock button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stock-list {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        padding: 30px;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1.1rem;
+    }
+
+    .controls input, .add-stock input, .add-stock button {
+        width: 100%;
+    }
+}

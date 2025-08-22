@@ -1,0 +1,135 @@
+/* Feedback Page Container */
+.feedback-page {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 80px 10%;
+    background: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #d9534f;
+    margin-bottom: 40px;
+  }
+  
+  .feedback-form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  input, select, textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    border-color: #5cb85c;
+    outline: none;
+    box-shadow: 0 0 8px rgba(92, 184, 92, 0.6);
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: none;
+  }
+  
+  .submit-btn {
+    background: #5cb85c;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+  
+  .submit-btn:hover {
+    background: #d9534f;
+  }
+  
+  .success-message {
+    background: #5cb85c;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  .error-message {
+    background: #d52b2b;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+  
+  /* Animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .feedback-page {
+      padding: 40px 5%;
+    }
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    .feedback-form {
+      padding: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .feedback-form {
+      padding: 20px;
+    }
+  
+    input, select, textarea {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  
+    .submit-btn {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+  }

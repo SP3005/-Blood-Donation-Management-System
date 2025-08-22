@@ -1,0 +1,79 @@
+/* Overall Page Styling */
+.home-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Benefits Section */
+  .benefits-container {
+    padding: 80px 10%;
+    background: #f5f5f5;
+    text-align: center;
+  }
+  
+  .benefits-container h2 {
+    font-size: 2.5rem;
+    color: #d9534f; /* Blood red color */
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #ede8e8;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.308);
+  }
+  
+  /* Grid layout for benefit cards */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  /* Individual benefit card */
+  .benefit-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .benefit-card h3 {
+    font-size: 1.8rem;
+    color: #5cb85c; /* Green highlight */
+    margin-bottom: 15px;
+  }
+  
+  .benefit-card p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 992px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .benefits-container h2 {
+      font-size: 2rem;
+    }
+  
+    .benefit-card h3 {
+      font-size: 1.5rem;
+    }
+  
+    .benefit-card p {
+      font-size: 1rem;
+    }
+  }  

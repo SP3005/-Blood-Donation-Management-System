@@ -1,0 +1,86 @@
+/* Footer Container */
+.footer-container {
+    background: #333;
+    color: #fff;
+    padding: 60px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Navigation Links */
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #d9534f;  /* Blood red hover effect */
+  }
+  
+  /* Social Media Icons */
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #555;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: transform 0.3s, background 0.3s;
+    text-decoration: none;
+  }
+  
+  .footer-social a:hover {
+    transform: translateY(-10px);
+    background: #d9534f;  /* Red hover effect */
+  }
+  
+  /* Copyright Text */
+  .footer-bottom {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #bbb;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .footer-links {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .footer-social {
+      gap: 20px;
+    }
+  
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+  }
+  

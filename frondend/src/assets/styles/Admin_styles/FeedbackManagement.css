@@ -1,0 +1,181 @@
+/* ==============================
+   Feedback Management Page
+================================= */
+.feedback-management-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding: 60px 8%;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Header */
+.feedback-management-page h1 {
+    font-size: 3rem;
+    color: #d9534f;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* ==============================
+   Feedback Section Layout
+================================= */
+.feedback-section {
+    margin-bottom: 60px;
+}
+
+.feedback-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #ccc;
+}
+
+/* Section Colors */
+.donor h2 {
+    color: #5cb85c;   /* Green for donors */
+}
+
+.patient h2 {
+    color: #d9534f;   /* Red for patients */
+}
+
+/* ==============================
+   Scrollable Section
+================================= */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 30px 0;
+}
+
+/* Custom Scrollbar */
+.scroll-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* ==============================
+   Feedback Card Styling
+================================= */
+.feedback-card {
+    background: #fff;
+    min-width: 320px;
+    max-width: 320px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    border-left: 10px solid transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover Effect */
+.feedback-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Rating Stars */
+.rating {
+    display: flex;
+    gap: 5px;
+}
+
+/* Card Content */
+.feedback-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feedback-card p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: #d9534f;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete-btn:hover {
+    background: #c9302c;
+}
+
+/* ==============================
+   Color Coding by Feedback Type
+================================= */
+.donor .feedback-card {
+    border-left: 10px solid #5cb85c;
+}
+
+.patient .feedback-card {
+    border-left: 10px solid #d9534f;
+}
+
+/* ==============================
+   Responsive Design
+================================= */
+@media screen and (max-width: 992px) {
+    .feedback-management-page {
+        padding: 40px 5%;
+    }
+
+    .feedback-card {
+        min-width: 280px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .feedback-card {
+        min-width: 250px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .feedback-card {
+        min-width: 220px;
+    }
+}

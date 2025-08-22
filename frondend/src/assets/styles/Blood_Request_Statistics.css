@@ -1,0 +1,80 @@
+/* Overall Page Styling */
+.home-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Statistics Section */
+  .stats-container {
+    padding: 80px 10%;
+    background: #fff;
+    text-align: center;
+  }
+  
+  .stats-container h2 {
+    font-size: 2.5rem;
+    color: #d9534f;  /* Blood red color */
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #ede8e8;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.308);
+  }
+  
+  /* Grid layout for statistics cards */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  
+  /* Individual statistic card */
+  .stat-card {
+    background: #f5f5f5;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .stat-card h3 {
+    font-size: 3rem;
+    color: #5cb85c;  /* Green highlight */
+    margin-bottom: 10px;
+  }
+  
+  .stat-card p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 992px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .stats-grid {
+      grid-template-columns: fr;
+    }
+    .stats-container{
+      padding: 80px 0px;
+    }
+  
+    .stats-container h2 {
+      font-size: 2rem;
+    }
+  
+    .stat-card h3 {
+      font-size: 2.5rem;
+    }
+  
+    .stat-card p {
+      font-size: 1rem;
+    }
+  }
+  

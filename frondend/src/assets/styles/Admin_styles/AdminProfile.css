@@ -1,0 +1,112 @@
+/* Admin Profile Page */
+.admin-profile-page {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding: 60px 10%;
+    box-sizing: border-box;
+}
+
+/* Header Section */
+.profile-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.profile-header h1 {
+    font-size: 3rem;
+    color: #d9534f;
+    margin-bottom: 10px;
+}
+
+.profile-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Profile Container */
+.profile-container {
+    background: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Form Section */
+.form-section {
+    margin-bottom: 40px;
+}
+
+.form-section h2 {
+    font-size: 2rem;
+    color: #5cb85c;
+    margin-bottom: 20px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid #5cb85c;
+    outline: none;
+}
+
+/* Actions Section */
+.form-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.save-btn {
+    background: #5cb85c;
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 8px;
+}
+
+.save-btn:hover {
+    background: #d9534f;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .profile-container {
+        padding: 30px;
+    }
+
+    .form-section h2 {
+        font-size: 1.8rem;
+    }
+
+    input, textarea {
+        padding: 10px;
+    }
+
+    .save-btn {
+        padding: 12px 30px;
+    }
+}

@@ -1,0 +1,121 @@
+/* History Page */
+.history-page {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding: 80px 10%;
+}
+
+/* Section Styling */
+.history-section {
+    background: #fff;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+}
+
+.history-section:hover {
+    transform: translateY(-5px);
+}
+
+.history-section h2 {
+    font-size: 2.5rem;
+    color: #d9534f;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Grid Layout */
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* History Card Styling */
+.history-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.history-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.history-card h3 {
+    font-size: 1.8rem;
+    color: #5cb85c;
+    margin-bottom: 15px;
+}
+
+.history-card p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Status Indicators */
+.status {
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* Status Colors */
+.status.completed {
+    background: #5cb85c; /* Green */
+    color: #fff;
+}
+
+.status.pending {
+    background: #f0ad4e; /* Yellow */
+    color: #fff;
+}
+
+.status.fulfilled {
+    background: #5bc0de; /* Blue */
+    color: #fff;
+}
+
+.status.rejected {
+    background: #d9534f; /* Red */
+    color: #fff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+    .history-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .history-section {
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .history-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .history-card {
+        padding: 30px;
+    }
+
+    .history-section h2 {
+        font-size: 2rem;
+    }
+}
