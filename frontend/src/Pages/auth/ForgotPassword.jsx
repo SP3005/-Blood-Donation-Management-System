@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+// ✅ API base URL from .env
+const API_URL = process.env.REACT_APP_API_URL;
+
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -8,26 +11,30 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Clear previous errors
+    setError('');
+    setMessage('');
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
+      const res = await axios.post(
+        `${API_URL}/api/auth/forgot-password`,
+        { email }
+      );
 
-      // Check if the email exists in the database
       if (res.data.message === 'Reset link sent to your email') {
-        setMessage(res.data.message); // Success message from the backend
+        setMessage(res.data.message);
       } else {
-        setError("Email not found. Please check and try again.");
+        setError('Email not found. Please check and try again.');
       }
     } catch (err) {
-      // Handle unexpected errors (e.g., network issues)
-      setError("An error occurred. Please try again.");
+      console.error("Forgot password error:", err);
+      setError('An error occurred. Please try again.');
     }
   };
 
   return (
-    <div>
+    <div className="forgot-password-page">
       <h2>Forgot Password</h2>
+
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -36,7 +43,10 @@ const ForgotPassword = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit" className="login-btn">Send Reset Link</button>
+
+        <button type="submit" className="login-btn">
+          Send Reset Link
+        </button>
       </form>
 
       {message && <p className="success-message">{message}</p>}

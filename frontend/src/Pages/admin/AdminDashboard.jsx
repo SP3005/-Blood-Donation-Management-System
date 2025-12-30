@@ -3,6 +3,9 @@ import axios from 'axios';
 import '../../assets/styles/Admin_styles/AdminDashboard.css';
 import { FaTint, FaUserPlus, FaClock, FaClipboardList } from 'react-icons/fa';
 
+// ✅ API base URL from .env
+const API_URL = process.env.REACT_APP_API_URL;
+
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const [recentActivities, setRecentActivities] = useState([]);
@@ -13,13 +16,15 @@ const AdminDashboard = () => {
     const fetchDashboardData = async () => {
       try {
         const [statsResponse, activitiesResponse] = await Promise.all([
-          axios.get('http://localhost:5000/api/dashboard/stats'),
-          axios.get('http://localhost:5000/api/dashboard/recent-activities')
+          axios.get(`${API_URL}/api/dashboard/stats`),
+          axios.get(`${API_URL}/api/dashboard/recent-activities`)
         ]);
+
         setStats(statsResponse.data);
         setRecentActivities(activitiesResponse.data);
         setLoading(false);
       } catch (err) {
+        console.error(err);
         setError('Failed to load dashboard data.');
         setLoading(false);
       }
@@ -63,13 +68,12 @@ const AdminDashboard = () => {
         <div className="stat-card">
           <FaUserPlus className="stat-icon request" />
           <h3>Donation Requests</h3>
-          {console.log(stats)}
           <p>{stats.donationRequests}</p>
         </div>
 
         <div className="stat-card">
           <FaClock className="stat-icon pending" />
-          <h3>Pending Requests of Patient </h3>
+          <h3>Pending Requests of Patient</h3>
           <p>{stats.pendingRequests}</p>
         </div>
 
@@ -85,7 +89,7 @@ const AdminDashboard = () => {
         <h2>Recent Activities</h2>
         <ul>
           {recentActivities.map((activity) => (
-            <li key={activity.id}>
+            <li key={activity._id || activity.id}>
               <p>{activity.action}</p>
               <span>{new Date(activity.time).toLocaleString()}</span>
             </li>

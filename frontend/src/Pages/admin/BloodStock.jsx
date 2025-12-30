@@ -4,6 +4,9 @@ import "../../assets/styles/Admin_styles/BloodStock.css";
 import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
 
+
+// ✅ API base URL from .env
+const API_URL = process.env.REACT_APP_API_URL;
 const BloodStock = () => {
   const [bloodStock, setBloodStock] = useState([]);
   const [filter, setFilter] = useState("");
@@ -11,7 +14,7 @@ const BloodStock = () => {
   // Fetch blood stock data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/donate/blood-stock")
+      .get(`${API_URL}/api/donate/blood-stock`)
       .then((response) => setBloodStock(response.data))
       .catch((error) => console.error("Error fetching blood stock:", error));
   }, []);
@@ -50,7 +53,7 @@ const BloodStock = () => {
   // Reduce blood unit and remove if count is 0
   const deleteStock = async (bloodGroup) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/donate/blood-stock/${bloodGroup}`);
+      const response = await axios.delete(`${API_URL}/api/donate/blood-stock/${bloodGroup}`);
   
       if (response.status === 200) {
         setBloodStock(response.data.updatedStock); // Update UI with latest stock

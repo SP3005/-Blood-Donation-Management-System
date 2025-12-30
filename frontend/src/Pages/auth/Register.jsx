@@ -3,6 +3,9 @@ import axios from "axios";
 import "../../assets/styles/auth_styles/Login.css";
 import { NavLink } from "react-router-dom";
 
+// ✅ API base URL from .env
+const API_URL = process.env.REACT_APP_API_URL;
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -26,6 +29,7 @@ const Register = () => {
     if (!emailRegex.test(formData.email)) newErrors.email = "Invalid email format.";
     if (!phoneRegex.test(formData.phone)) newErrors.phone = "Phone number must be 10 digits.";
     if (!formData.location.trim()) newErrors.location = "Address is required.";
+
     if (!formData.dob) newErrors.dob = "Date of birth is required.";
     else {
       const birthDate = new Date(formData.dob);
@@ -36,8 +40,10 @@ const Register = () => {
         newErrors.dob = "You must be at least 18 years old.";
       }
     }
+
     if (!formData.bloodgroup) newErrors.bloodgroup = "Blood group is required.";
-    if (formData.password.length < 6) newErrors.password = "Password must be at least 6 characters.";
+    if (formData.password.length < 6)
+      newErrors.password = "Password must be at least 6 characters.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -54,10 +60,14 @@ const Register = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
-        ...formData,
-        role: "user"
-      });
+      await axios.post(
+        `${API_URL}/api/auth/register`,
+        {
+          ...formData,
+          role: "user"
+        }
+      );
+
       alert("Registration successful!");
       window.location.href = "/login";
     } catch (error) {
@@ -70,8 +80,12 @@ const Register = () => {
   return (
     <div className="login-container">
       <div className="login-image"></div>
+
       <div className="login-form">
-        <h2 className="Login-titel"><strong>Register</strong></h2>
+        <h2 className="Login-titel">
+          <strong>Register</strong>
+        </h2>
+
         <form onSubmit={handleRegister}>
           <div className="left-group">
             <div className="input-group">
@@ -152,7 +166,9 @@ const Register = () => {
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
               </select>
-              {errors.bloodgroup && <span className="error">{errors.bloodgroup}</span>}
+              {errors.bloodgroup && (
+                <span className="error">{errors.bloodgroup}</span>
+              )}
             </div>
 
             <div className="input-group">
@@ -174,7 +190,9 @@ const Register = () => {
 
           <span className="login-titel">
             Have an account?
-            <NavLink to="/login" className="login-link"> Log in now</NavLink>
+            <NavLink to="/login" className="login-link">
+              {" "}Log in now
+            </NavLink>
           </span>
         </form>
       </div>

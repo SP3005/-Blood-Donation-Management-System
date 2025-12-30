@@ -1,8 +1,10 @@
-// UserFeedback.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../assets/styles/Feedback.css';
 import { useNavigate } from 'react-router-dom';
+
+// ✅ API base URL from .env
+const API_URL = process.env.REACT_APP_API_URL;
 
 const UserFeedback = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const UserFeedback = () => {
     rating: 5,
     comment: ''
   });
+
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
 
@@ -23,30 +26,45 @@ const UserFeedback = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post('http://localhost:5000/api/feedback', formData);
+      const response = await axios.post(
+        `${API_URL}/api/feedback`,
+        formData
+      );
+
       if (response.status === 201) {
         setSubmitted(true);
-        setFormData({ name: '', role: 'Donor', rating: 5, comment: '' });
+        setFormData({
+          name: '',
+          role: 'Donor',
+          rating: 5,
+          comment: ''
+        });
+
         setTimeout(() => setSubmitted(false), 3000);
       }
     } catch (error) {
       console.error("Error submitting feedback:", error);
     }
   };
+
   const role = localStorage.getItem("role") || "";
-console.log("Updated Role:", role);
-const handleLogin = () =>{
-  navigate("/login");
-}
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="feedback-page">
       <h1>Share Your Feedback</h1>
+
       {submitted && (
         <div className="success-message">
           🎉 Thank you for your feedback!
         </div>
       )}
+
       <form onSubmit={handleSubmit} className="feedback-form">
         <div className="form-group">
           <label htmlFor="name">Your Name:</label>
@@ -60,16 +78,28 @@ const handleLogin = () =>{
             placeholder="Enter your name"
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="role">You are a:</label>
-          <select id="role" name="role" value={formData.role} onChange={handleChange}>
+          <select
+            id="role"
+            name="role"
+            value={formData.role}
+            onChange={handleChange}
+          >
             <option value="Donor">Donor</option>
             <option value="Patient">Patient</option>
           </select>
         </div>
+
         <div className="form-group">
           <label htmlFor="rating">Rating:</label>
-          <select id="rating" name="rating" value={formData.rating} onChange={handleChange}>
+          <select
+            id="rating"
+            name="rating"
+            value={formData.rating}
+            onChange={handleChange}
+          >
             <option value="1">⭐</option>
             <option value="2">⭐⭐</option>
             <option value="3">⭐⭐⭐</option>
@@ -77,6 +107,7 @@ const handleLogin = () =>{
             <option value="5">⭐⭐⭐⭐⭐</option>
           </select>
         </div>
+
         <div className="form-group">
           <label htmlFor="comment">Comment:</label>
           <textarea
@@ -88,8 +119,20 @@ const handleLogin = () =>{
             placeholder="Write your feedback here..."
           />
         </div>
-        {role === "user" ?   <button type="submit" className="submit-btn">Submit Feedback</button>:   <button onClick={handleLogin} className="submit-btn">Sign In</button>}
-        
+
+        {role === "user" ? (
+          <button type="submit" className="submit-btn">
+            Submit Feedback
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={handleLogin}
+            className="submit-btn"
+          >
+            Sign In
+          </button>
+        )}
       </form>
     </div>
   );

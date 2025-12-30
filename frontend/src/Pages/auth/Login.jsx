@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+// ✅ API base URL from .env
+const API_URL = process.env.REACT_APP_API_URL;
+
 const Login = ({ setUserRole }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [serverError, setServerError] = useState(""); // Handle backend error
+  const [serverError, setServerError] = useState("");
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -32,10 +35,10 @@ const Login = ({ setUserRole }) => {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${API_URL}/api/auth/login`,
+        { email, password }
+      );
 
       const { token, role } = response.data;
 
@@ -55,7 +58,8 @@ const Login = ({ setUserRole }) => {
       }
     } catch (error) {
       const errorMsg =
-        error.response?.data?.message || "Login failed. Please try again.";
+        error.response?.data?.message ||
+        "Login failed. Please try again.";
       setServerError(errorMsg);
     }
   };
@@ -63,8 +67,12 @@ const Login = ({ setUserRole }) => {
   return (
     <div className="login-container">
       <div className="login-image"></div>
+
       <div className="login-form">
-        <h2 className="Login-titel"><strong>Login</strong></h2>
+        <h2 className="Login-titel">
+          <strong>Login</strong>
+        </h2>
+
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <label className="Input-Name">Email</label>
@@ -77,7 +85,9 @@ const Login = ({ setUserRole }) => {
                 setErrors({ ...errors, email: "" });
               }}
             />
-            {errors.email && <span className="error">{errors.email}</span>}
+            {errors.email && (
+              <span className="error">{errors.email}</span>
+            )}
           </div>
 
           <div className="input-group">
@@ -91,22 +101,30 @@ const Login = ({ setUserRole }) => {
                 setErrors({ ...errors, password: "" });
               }}
             />
-            {errors.password && <span className="error">{errors.password}</span>}
+            {errors.password && (
+              <span className="error">{errors.password}</span>
+            )}
           </div>
 
-          {serverError && <span className="error">{serverError}</span>}
-          
+          {serverError && (
+            <span className="error">{serverError}</span>
+          )}
+
           <span className="register-titel">
-          <NavLink to="/forgot-password" className="register-link">
-            Forgot Password?
-          </NavLink>
+            <NavLink to="/forgot-password" className="register-link">
+              Forgot Password?
+            </NavLink>
           </span>
 
-          <button type="submit" className="login-btn">Login</button>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
 
           <span className="register-titel">
             Don't have an account?
-            <NavLink to="/register" className="register-link"> Sign Up</NavLink>
+            <NavLink to="/register" className="register-link">
+              {" "}Sign Up
+            </NavLink>
           </span>
         </form>
       </div>

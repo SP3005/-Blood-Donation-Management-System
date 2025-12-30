@@ -2,38 +2,62 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../assets/styles/Admin_styles/PatientResponse.css';
 
+// ✅ API base URL from .env
+const API_URL = process.env.REACT_APP_API_URL;
+
 const PatientResponse = () => {
   const [requests, setRequests] = useState([]);
 
-  // Fetch blood requests from the API on mount
+  // 🔹 Fetch patient blood requests
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/blood-requests');
+        const response = await axios.get(
+          `${API_URL}/api/blood-requests`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+          }
+        );
         setRequests(response.data);
       } catch (error) {
         console.error('Error fetching blood requests:', error);
       }
     };
+
     fetchRequests();
   }, []);
 
-  // Update the status using API endpoints and then update local state
+  // 🔹 Update request status
   const updateStatus = async (id, newStatus) => {
     try {
-      const endpoint = newStatus === 'approved'
-        ? `http://localhost:5000/api/blood-requests/approve/${id}`
-        : `http://localhost:5000/api/blood-requests/reject/${id}`;
-      await axios.put(endpoint, { status: newStatus });
+      const endpoint =
+        newStatus === 'approved'
+          ? `${API_URL}/api/blood-requests/approve/${id}`
+          : `${API_URL}/api/blood-requests/reject/${id}`;
+
+      await axios.put(
+        endpoint,
+        { status: newStatus },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
+        }
+      );
+
+      // Update UI immediately
       setRequests(prev =>
-        prev.map(req => req._id === id ? { ...req, status: newStatus } : req)
+        prev.map(req =>
+          req._id === id ? { ...req, status: newStatus } : req
+        )
       );
     } catch (error) {
       console.error('Error updating request status:', error);
     }
   };
 
-  // Returns a CSS class based on the status (make sure your CSS matches these classes)
   const getStatusClass = (status) => {
     switch (status.toLowerCase()) {
       case 'pending': return 'pending';
@@ -43,7 +67,6 @@ const PatientResponse = () => {
     }
   };
 
-  // Filter requests based on status
   const filteredRequests = (status) =>
     requests.filter(req => req.status.toLowerCase() === status);
 
@@ -51,7 +74,7 @@ const PatientResponse = () => {
     <div className="patient-response-page">
       <h1>Patient Blood Requests</h1>
 
-      {/* Pending Requests */}
+      {/* Pending */}
       <div className="response-section pending">
         <h2>Pending Requests</h2>
         <div className="scroll-container">
@@ -59,19 +82,23 @@ const PatientResponse = () => {
             <p>No pending requests found.</p>
           ) : (
             filteredRequests('pending').map(req => (
-              <div key={req._id} className={`request-card ${getStatusClass(req.status)}`}>
+              <div
+                key={req._id}
+                className={`request-card ${getStatusClass(req.status)}`}
+              >
                 <h3>{req.name}</h3>
                 <p>Blood Group: <strong>{req.bloodGroup}</strong></p>
                 <p>Status: <span>{req.status}</span></p>
+
                 <div className="actions">
-                  <button 
-                    onClick={() => updateStatus(req._id, 'approved')} 
+                  <button
+                    onClick={() => updateStatus(req._id, 'approved')}
                     className="approve-btn"
                   >
                     Approve
                   </button>
-                  <button 
-                    onClick={() => updateStatus(req._id, 'rejected')} 
+                  <button
+                    onClick={() => updateStatus(req._id, 'rejected')}
                     className="reject-btn"
                   >
                     Reject
@@ -83,7 +110,7 @@ const PatientResponse = () => {
         </div>
       </div>
 
-      {/* Approved Requests */}
+      {/* Approved */}
       <div className="response-section approved">
         <h2>Approved Requests</h2>
         <div className="scroll-container">
@@ -91,7 +118,10 @@ const PatientResponse = () => {
             <p>No approved requests found.</p>
           ) : (
             filteredRequests('approved').map(req => (
-              <div key={req._id} className={`request-card ${getStatusClass(req.status)}`}>
+              <div
+                key={req._id}
+                className={`request-card ${getStatusClass(req.status)}`}
+              >
                 <h3>{req.name}</h3>
                 <p>Blood Group: <strong>{req.bloodGroup}</strong></p>
                 <p>Status: <span>{req.status}</span></p>
@@ -101,7 +131,7 @@ const PatientResponse = () => {
         </div>
       </div>
 
-      {/* Rejected Requests */}
+      {/* Rejected */}
       <div className="response-section rejected">
         <h2>Rejected Requests</h2>
         <div className="scroll-container">
@@ -109,7 +139,10 @@ const PatientResponse = () => {
             <p>No rejected requests found.</p>
           ) : (
             filteredRequests('rejected').map(req => (
-              <div key={req._id} className={`request-card ${getStatusClass(req.status)}`}>
+              <div
+                key={req._id}
+                className={`request-card ${getStatusClass(req.status)}`}
+              >
                 <h3>{req.name}</h3>
                 <p>Blood Group: <strong>{req.bloodGroup}</strong></p>
                 <p>Status: <span>{req.status}</span></p>
