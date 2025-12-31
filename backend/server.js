@@ -15,19 +15,9 @@ connectDB();
 
 const app = express();
 
-/* ======================
-   CORS (PRODUCTION SAFE)
-====================== */
-app.use(
-  cors({
-    origin: [
-      "*",               // local dev
-      "https://*.netlify.app"                // Netlify frontend
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-  })
-);
+/* ✅ FIXED CORS (ALLOW NETLIFY) */
+app.use(cors());   // 🔥 THIS LINE FIXES EVERYTHING
+
 
 app.use(express.json());
 
