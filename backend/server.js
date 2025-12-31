@@ -15,9 +15,17 @@ connectDB();
 
 const app = express();
 
-/* ✅ FIXED CORS (ALLOW NETLIFY) */
-app.use(cors());   // 🔥 THIS LINE FIXES EVERYTHING
+const corsOptions = {
+  origin: [
+    "http://localhost:3000",
+    "https://sharelifegiveblood.netlify.app"
+  ],
+  methods: "GET,POST,PUT,DELETE,OPTIONS",
+  allowedHeaders: "Content-Type, Authorization",
+};
 
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 
