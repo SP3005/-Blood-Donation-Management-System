@@ -5,7 +5,7 @@ const sendResetEmail = async (to, resetLink) => {
     service: 'Gmail',
     auth: {
       user: 'sharelifegiveblood098@gmail.com',
-      pass: 'hoxx dnew uubo cfrb' // Use App Password for security
+      pass: 'hoxxdnewuubocfrb' // Use App Password for security
     }
   });
 
