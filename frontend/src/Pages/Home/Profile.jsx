@@ -1,30 +1,13 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import '../../assets/styles/Profile.css';
 import profileImage from '../../assets/images/2.png';  // Replace with your image
 import { useLocation } from "react-router-dom";
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
+  // const [isEditing, setIsEditing] = useState(false);
   const location = useLocation();
   const { userInfo } = location.state || {};
 
-  const [user, setUser] = useState({
-    name: "John Doe",
-    email: "johndoe@gmail.com",
-    bloodGroup: "O+",
-    phone: "+1 234 567 890",
-    location: "123 Blood Donation Street, City, Country",
-    dob: "1990-05-15"
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser((prevUser) => ({ ...prevUser, [name]: value }));
-  };
-
-  const toggleEdit = () => {
-    setIsEditing(!isEditing);
-  };
 console.log(userInfo);
 
   return (

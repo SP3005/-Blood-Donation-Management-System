@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./Componects/Navbar";
 import Home from "../src/Pages/Home/Home";
-import Donate_Blood from "../src/Pages/Home/Donate_Blood";
-import Request_Blood from "./Pages/Home/Request_Blood";
+import DonateBlood from "../src/Pages/Home/DonateBlood";
+import RequestBlood from "./Pages/Home/RequestBlood";
 import AboutUs from "./Pages/Home/AboutUS";
 import ContactUs from "./Pages/Home/ContactUS";
 import Profile from "./Pages/Home/Profile";
@@ -75,8 +75,8 @@ const App = () => {
         {/* Protected User Routes */}
         {/* <Route element={<ProtectedRoute allowedRoles={["user"]} />}> */}
           <Route path="/" element={<Home />} />
-          <Route path="/donate_blood" element={<Donate_Blood />} />
-          <Route path="/request_blood" element={<Request_Blood />} />
+          <Route path="/donate_blood" element={<DonateBlood />} />
+          <Route path="/request_blood" element={<RequestBlood />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />

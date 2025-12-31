@@ -5,7 +5,7 @@ import '../../assets/styles/Blood_Request_Statistics.css';
 // ✅ Backend URL from .env
 const API_URL = process.env.REACT_APP_API_URL;
 
-const Blood_Request_Statistics = () => {
+const BloodRequestStatistics = () => {
   const [statistics, setStatistics] = useState({
     allRequests: 0,
     donationRequests: 0,
@@ -76,4 +76,4 @@ const Blood_Request_Statistics = () => {
   );
 };
 
-export default Blood_Request_Statistics;
+export default BloodRequestStatistics;

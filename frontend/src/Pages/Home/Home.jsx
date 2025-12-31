@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../assets/styles/Home.css';
 import heroImage from '../../assets/images/1.jpg';
-import Blood_Request_Statistics from './Blood_Request_Statistics';
+import BloodRequestStatistics from './BloodRequestStatistics';
 import Benefits from './Benefits';
-import Work_step from './Work_step';
-import Recent_Blood_Requests from './Recent_Blood_Requests';
+import Workstep from './Workstep';
+import RecentBloodRequests from './RecentBloodRequests';
 import Organization from './Organization';
 import Contact from './Contact';
 import Footer from './Footer';
@@ -94,10 +94,10 @@ const HomePage = () => {
       </div>
 
       {/* Other Sections */}
-      <Blood_Request_Statistics />
+      <BloodRequestStatistics />
       <Benefits />
-      <Work_step />
-      <Recent_Blood_Requests />
+      <Workstep />
+      <RecentBloodRequests />
       <Organization />
       <Contact />
       <Footer />

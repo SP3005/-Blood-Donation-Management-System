@@ -57,7 +57,6 @@ const Navbar = ({ setUserRole }) => {
     fetchUserInfo();
   }, []);
 
-  const role = localStorage.getItem("role") || "";
 
   // 🔹 Close dropdown when clicking outside
   useEffect(() => {
