@@ -18,7 +18,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:3000",
-    "https://sharelifegiveblood.netlify.app"
+    "https://sharelifegiveblood1.netlify.app"
   ],
   methods: "GET,POST,PUT,DELETE,OPTIONS",
   allowedHeaders: "Content-Type, Authorization",
